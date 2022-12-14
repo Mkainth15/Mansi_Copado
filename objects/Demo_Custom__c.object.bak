@@ -143,34 +143,51 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
+    <description>create for Demo purpose</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableLicensing>false</enableLicensing>
     <enableReports>false</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-    <label>Copado Demo</label>
+    <label>Demo Object</label>
     <nameField>
-        <label>Copado Demo Name</label>
+        <label>Demo Custom  Name</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Copadoss</pluralLabel>
+    <pluralLabel>Demo Objects</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
-	
     <fields>
-        <fullName>UserName__c</fullName>
+        <fullName>Field_One__c</fullName>
+        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>UserName</label>
-        <length>6</length>
-        <required>true</required>
+        <label>Field One</label>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Field_Two__c</fullName>
+        <externalId>false</externalId>
+        <label>Field Two</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
         <unique>false</unique>
     </fields>
+    <validationRules>
+        <fullName>DemoValidationRuleOne</fullName>
+        <active>true</active>
+        <description>created for Demo.</description>
+        <errorConditionFormula>AND(
+ Field_One__c,
+ ISBLANK(Field_Two__c)
+)</errorConditionFormula>
+        <errorMessage>Please enter Field two if Field one is checked.</errorMessage>
+    </validationRules>
 </CustomObject>
